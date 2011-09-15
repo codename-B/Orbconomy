@@ -10,6 +10,10 @@ public class OrbconomyManager {
 	private final JavaPlugin p;
 	private final HashMap<String, OrbBalance> balances;
 	public OrbconomyManager(JavaPlugin p) {
+	this(p, true);
+	}
+	public OrbconomyManager(JavaPlugin p, boolean showMessage) {
+		if(showMessage)
 		System.out.println("[Orbconomy] "+p.getDescription().getName() + " hooked into Orbconomy");
 		this.p = p;
 		this.balances = new HashMap<String, OrbBalance>();
