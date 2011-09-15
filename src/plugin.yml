@@ -1,0 +1,10 @@
+name: Orbconomy
+author: codename_B
+main: de.bananaco.orbconomy.Orbconomy
+version: 0.5
+load: startup
+commands:
+  exp:
+    description: various experience commands
+    usage: |
+           /<command> help
