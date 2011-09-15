@@ -4,13 +4,15 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
+import org.bukkit.event.Event.Priority;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Orbconomy extends JavaPlugin {
 
-	private static OrbconomyManager ocm;
+	public static OrbconomyManager ocm;
 	
 	public void log(Object input) {
 		System.out.println("[Orbconomy "+this.getDescription().getVersion()+"] "+String.valueOf(input));
@@ -24,7 +26,8 @@ public class Orbconomy extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		ocm = new OrbconomyManager(this);
+		ocm = new OrbconomyManager(this, false);
+		getServer().getPluginManager().registerEvent(Event.Type.ENTITY_DEATH, new DuplicationFix(this), Priority.Normal, this);
 		getServer().getPluginManager().addPermission(new Permission("oc.user","access Orbconomy user commands", PermissionDefault.OP));
 		getServer().getPluginManager().addPermission(new Permission("oc.admin","access Orbconomy admin commands", PermissionDefault.OP));
 		log("Enabled");

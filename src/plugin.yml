@@ -1,7 +1,7 @@
 name: Orbconomy
 author: codename_B
 main: de.bananaco.orbconomy.Orbconomy
-version: 0.6
+version: 0.7
 load: startup
 commands:
   exp:
